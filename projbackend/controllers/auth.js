@@ -14,7 +14,7 @@ exports.signup = (req, res)=>{
 
     const user = new User(req.body)
     user.save((err, user)=>{
-        if(err){
+        if(err || !user){
             return res.status(400).json({
                 err: "Not able to save user in DATABASE"
             })
@@ -29,6 +29,7 @@ exports.signup = (req, res)=>{
 
 
 exports.signin = (req, res)=>{
+    const errors = validationResult(req)
     const {email,password} = req.body;
 
     if(!errors.isEmpty()){
@@ -39,10 +40,10 @@ exports.signin = (req, res)=>{
 
 // find one match from database
     User.findOne({email}, (err, user)=>{
-        if(err){
-            res.status(400).json({
+        if(err || !user){
+          return  res.status(400).json({
                 error: "User email does not exists!"
-            })
+            });
         }
 
         if(!user.authenticate(password)){
@@ -51,7 +52,7 @@ exports.signin = (req, res)=>{
             })
         }
         //create token
-        const token = jwt.sigin({_id: user._id}, process.env.SECRET)
+        const token = jwt.sign({_id: user._id}, process.env.SECRET)
         //put token in cookie
         res.cookie("token", token, {expire: new Date() + 9999});
 
