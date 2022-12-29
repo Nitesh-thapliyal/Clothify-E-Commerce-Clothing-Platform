@@ -21,7 +21,7 @@ signin
 
 
 
-
+// signout pending
 router.get("/signout", signout);
 
 module.exports = router;
