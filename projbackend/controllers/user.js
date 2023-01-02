@@ -59,6 +59,9 @@ exports.userPurchaseList = (req, res)=>{
     })
 }
 
+exports.pushOrderInPurchaseList = (req, res)=>{
+
+}
 
 
 //experiment to get all the users from the database
