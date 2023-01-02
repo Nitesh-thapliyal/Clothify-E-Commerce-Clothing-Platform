@@ -25,9 +25,31 @@ exports.getUser = (req,res)=> {
 }
 
 
+exports.updateUser = (req, res) => {
+    User.findByIdAndUpdate(
+        {_id:req.profile._id},
+        {$set: req.body},
+        {new: true, useFindAndModify: false},
+        (err, user)=>{
+            if(err){
+                return res.status(400).json({
+                    error: "Update in the database was not sucessfull!"
+                }) 
+            }
+            user.salt = undefined; 
+            user.encry_password = undefined; 
+            user.createdAt = undefined; 
+            user.updatedAt = undefined;
+            res.json(user);
+        }
+    )
+}
+
+
+
+
 //experiment to get all the users from the database
-/*
-exports.getAllUser = (req, res) =>{
+/*exports.getAllUser = (req, res) =>{
     User.find().exec((err, users)=>{
         if(err || !users){
             return res.status(400).json({
