@@ -1,7 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const {getCategoryById, createCategory, getCategory, getAllCategory, updateCategory} = require("../controllers/category");
+const {
+    getCategoryById,
+    createCategory,
+    getCategory,
+    getAllCategory,
+    updateCategory,
+    removeCategory
+} = require("../controllers/category");
+
 const {isAdmin, isSignedIn, isAuthenticated} = require("../controllers/auth");
 const {getUserById} = require("../controllers/user");
 
@@ -11,15 +19,36 @@ router.param("categoryId", getCategoryById);
 
 // actual routes goes here
 
-// create route
-router.post("/category/create/:userId", isSignedIn, isAuthenticated, isAdmin, createCategory);
+// create 
+router.post(
+    "/category/create/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    createCategory
+);
 
-// read route
+// read 
 router.get("/category/:categoryId", getCategory);
 router.get("/categories", getAllCategory);
 
-//update route
-router.put("/category/:categoryId/:userId", isSignedIn, isAuthenticated, isAdmin, updateCategory);
+// update 
+router.put(
+    "/category/:categoryId/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    updateCategory
+);
+
+// delete
+router.delete(
+    "/category/:categoryId/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    removeCategory
+);
 
 
 module.exports = router;
