@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose'; // for this you need to have type = module in package.json file
+const mongoose = require("mongoose");
 
 const categorySchema = new mongoose.Schema({
     name:{

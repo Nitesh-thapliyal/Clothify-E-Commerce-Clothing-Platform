@@ -9,6 +9,7 @@ const cors = require('cors');
 // My Routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
 
 
 // DB CONNECTION
@@ -30,6 +31,7 @@ app.use(cors());
 // MY ROUTES
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
 
 
 
