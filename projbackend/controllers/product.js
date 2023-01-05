@@ -61,3 +61,18 @@ exports.createProduct = (req, res) => {
     });
   });
 };
+
+exports.getProduct = (req, res)=>{
+  req.product.photo = undefined; 
+  return res.json(req.product)
+}
+
+//middleware : optimize the image binary code and make process fast
+exports.photo = (req,res,next)=>{
+  //safety net check
+  if(req.product.photo.data){
+    res.set("Content-Type", req.product.photo.contentType)
+    return res.send(req.product.photo.data);
+  }
+  next();
+}
