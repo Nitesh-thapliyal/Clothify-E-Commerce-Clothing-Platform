@@ -24,5 +24,18 @@ exports.createOrder = (req,res)=>{
             })
         }
         res.json(order);
-    })
-}
+    });
+};
+
+exports.getAllOrders = (req, res)=>{
+    Order.find()
+    .populate("user", "_id name")
+    .exec((err, order)=>{
+        if(err){
+            return res.status(400).json({
+                error: "No Order Found in DB!"
+            })
+        }
+        res.json(order);
+    });
+};
