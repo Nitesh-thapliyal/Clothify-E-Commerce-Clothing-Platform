@@ -7,8 +7,8 @@ import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 const Signin = () =>{
 
     const [values, setValues] = useState({
-        email : "",
-        password: "",
+        email : "d@gmail.com",
+        password: "12345",
         error: "",
         loding: false,
         didRedirect: false,
