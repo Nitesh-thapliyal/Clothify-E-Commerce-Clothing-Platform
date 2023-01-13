@@ -7,7 +7,7 @@ import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 const Signin = () =>{
 
     const [values, setValues] = useState({
-        email : "d@gmail.com",
+        email : "the@gmail.com",
         password: "12345",
         error: "",
         loding: false,
@@ -44,10 +44,10 @@ const Signin = () =>{
     const perfromRedirect = () => {
         if(didRedirect){
             if(user && user.role === 1){
-                return <p>Redirect to admin!</p>
+                return <Redirect to="/admin/dashboard"/>
             }
             else{
-                return <p>redirect to user dashboard</p>
+                return <Redirect to="/user/dashboard"/>
             }
         }
         if(isAuthenticated()){
