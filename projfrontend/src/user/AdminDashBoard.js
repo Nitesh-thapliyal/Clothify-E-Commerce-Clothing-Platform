@@ -27,8 +27,24 @@ const AdminDashboard = () => {
 
     const adminRightSide = () => {
         return(
-            <div>
-                <h1>Hii Admin...</h1>
+            <div className="card" mb-4>
+                <h4 className="class-header">Admin Information</h4>
+                <ul className="list-group">
+
+                    <li className="list-group-item">
+                        <span className="badge bg-success mr-2">Name:</span> {name}
+                    </li>
+
+                    <li className="list-group-item">
+                        <span className="badge bg-success mr-2">Email:</span> {email}
+                    </li>
+
+                    <li className="list-group-item">
+                        <span className = "badge bg-danger">Admin Area</span>
+                    </li>
+
+                </ul>
+                
             </div>
         )
     }
