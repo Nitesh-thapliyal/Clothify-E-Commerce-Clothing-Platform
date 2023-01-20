@@ -25,11 +25,11 @@ router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
 
 // update route
-router.put("/product/productId/:userId", isSignedIn, isAuthenticated, isAdmin, updateProduct);
+router.put("/product/:productId/:userId", isSignedIn, isAuthenticated, isAdmin, updateProduct);
 
 
 // delete route
-router.delete("/product/productId/:userId", isSignedIn, isAuthenticated, isAdmin, deleteProduct);
+router.delete("/product/:productId/:userId", isSignedIn, isAuthenticated, isAdmin, deleteProduct);
 
 // listing route
 router.get("/products", getAllProducts);
