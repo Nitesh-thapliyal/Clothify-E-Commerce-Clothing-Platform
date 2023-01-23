@@ -36,3 +36,10 @@ export const addItemToCart = (item, next) => {
     }
     return cart;
   };
+
+  export const cartEmpty = next => {
+    if (typeof window !== undefined){
+        localStorage.removeItem("cart")
+        next();
+    }
+  };
