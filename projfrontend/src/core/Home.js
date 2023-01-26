@@ -29,7 +29,7 @@ export default function Home(){
   
 
   return(
-    <Base title='NT Store' description='Welcome to the Store'>
+    <Base title='Nitesh Store' description='Welcome to the Store'>
       <div className='row text-center'>
 
         <h1 className='text-white'>All of product</h1>
