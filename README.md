@@ -3,6 +3,9 @@
 
 This is an e-commerce web application built using the MERN stack (MongoDB, Express.js, React, and Node.js). It allows users to browse and purchase products, view their order history, and manage their account information.
 
+
+![store](testfront/src/store.png)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -39,8 +42,11 @@ JWT_SECRET=your_secret_key
 - React - The front-end library used
 - Node.js - The back-end runtime environment
 
+**Payment Gateway**
+- Stripe
+
 **Status**
-- In Progress
+- Completed
 
 
 ## Authors
