@@ -1,4 +1,4 @@
-# E-Commerce Web Application
+# Clothify
 
 
 This is an e-commerce web application built using the MERN stack (MongoDB, Express.js, React, and Node.js). It allows users to browse and purchase products, view their order history, and manage their account information.
